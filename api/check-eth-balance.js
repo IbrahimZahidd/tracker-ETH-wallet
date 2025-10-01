@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const address = req.query.address;
-  const apiKey = process.env.ETHERSCAN_API_KEY;
+  const apiKey = process.env.ETHERSCAN_API_KEY; // Sử dụng biến môi trường!
   if (!address) return res.status(400).json({error: 'Missing address'});
   const url = `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${apiKey}`;
   try {
